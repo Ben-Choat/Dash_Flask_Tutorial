@@ -1,0 +1,20 @@
+dash
+dash-bootstrap-components
+dash-extensions
+numpy
+pandas
+geopandas
+plotly
+# folium
+email-validator
+eventlet
+flask
+flask-login
+Flask-WTF
+Flask-Limiter
+flask-socketio
+Werkzeug
+jupyter
+ipykernel
+# reportlab
+# statsmodels

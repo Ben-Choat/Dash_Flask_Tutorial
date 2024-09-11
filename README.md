@@ -5,6 +5,8 @@ A short and simple tutorial to enable use of Plotly, Dash, and Flask
 
 # Steps to follow 
 
+## Clone and install
+
 1. Clone this repository to a desired location
     - git clone https://github.com/Ben-Choat/Dash_Flask_Tutorial
 
@@ -36,6 +38,7 @@ A short and simple tutorial to enable use of Plotly, Dash, and Flask
     - Install the modules listed in requirements.txt (included with this repo)
         - python -m pip install -r requirements.txt (assumes requirements.txt is in current directory, otherwise you need to specify correct location)
 
+## Interactive plot in ploty
 
 5. 
 

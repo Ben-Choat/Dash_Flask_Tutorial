@@ -1,0 +1,85 @@
+<base>
+
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}"> -->
+
+    <style>
+        body {
+            display: flex; /* flex creates a flex-box, which is a standard css layout model
+            flex-direction: column; /* column or row */
+            justify-content: center;  /* Centers content horizontally */
+            /* align-items: center;      Centers content vertically */
+            min-height: 100vh;        /* Ensures the body takes up at least the full viewport height */
+            margin: 50px;                /* Removes default margin */
+            font-family: Arial, sans-serif; /* Optional: sets the font for better readability */
+            text-align: center;       /* Centers text content */
+        }
+
+        h1 {
+            color: #0ee732;
+            font-family: 'Times New Roman', Times, serif;
+            justify-content: center;
+        }
+
+        footer {
+            margin-top: 20vh;
+        }
+
+        .scrolling-text-wrapper {
+            overflow: hidden;
+            white-space: nowrap; /* Prevents text from wrapping to the next line */
+            box-sizing: border-box;
+            width: 100%; /* Or any specific width */
+        }
+
+        .scrolling-text {
+            display: inline-block;
+            padding-left: 50%; /* Start the text off-screen */
+            animation: scroll-text 5s linear infinite;
+        }
+        /* defines animatio to move from right edge to left edge */
+        /* defines a sequence of style changes over time */
+        @keyframes scroll-text {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-120%);
+            }
+        }
+
+
+    </style>
+
+    <title>Example of Raw HTML</title>
+</head>
+
+<header>
+    <h1>Example of Raw HTML</h1>
+</header>
+
+<body>
+    <main>
+        <br><br>
+        <h1>Various levels of headers -1</h1>
+        <h2>level2</h2>
+        <h6>level6</h6>
+        <br><br>
+    </main>
+
+</body>
+
+<footer>
+    <p>How much does it rain east of the Cascades in Oregon?</p>
+    <div class="scrolling-text-wrapper">
+        <div class="scrolling-text">
+            <p>Nobody will ever know...</p>
+        </div>
+    </div>
+</footer>
+</html>
