@@ -36,7 +36,7 @@ Some functions/attributes of note:
 
 # load libraries
 from dash import Dash, dcc, html
-from PlotlyPlots import create_go_plot
+from C_PlotlyPlots import create_go_plot
 import numpy as np
 import pandas as pd
 

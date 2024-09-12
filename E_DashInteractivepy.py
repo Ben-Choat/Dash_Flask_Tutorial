@@ -23,6 +23,8 @@ Some functions/attributes of note:
     standard html and tend to be used along side dcc and dbc.
     https://dash.plotly.com/dash-html-components
 
+Some helpful resources
+
 -I've been using dbc as much as possible. dbc does not include options
     for all dcc's though.
 
@@ -37,7 +39,7 @@ Some functions/attributes of note:
 
 # load libraries
 from dash import Dash, dcc, html
-from PlotlyPlots import create_go_plot
+from C_PlotlyPlots import create_go_plot
 import numpy as np
 import pandas as pd
 # import dash_bootstrap_components as dbc
@@ -58,18 +60,25 @@ df_work = pd.DataFrame({
     'Irrigated': ['yes' if i == 1 else 'no' for i in rndm_numbers]
 })
 
+# for info about bootstrap themes in Dash see: 
+   # https://dash-bootstrap-components.opensource.faculty.ai/docs/#:~:text=Linking%20a%20stylesheet
+# print(dbc.themes.COSMO)
 # app definition
+# app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+# app = Dash(external_stylesheets=[dbc.themes.CYBORG])
 app = Dash()
 
 # app layout
 app.layout = html.Div(children=[
-    html.H1('This is an html header'),
+    html.H1('~~~~Basic Dash Example~~~~'),
     # html.Div(children = [
+        # html.P('Select Variable for X-Axis'),
         dcc.Dropdown(
             options=df_work.columns[0:3],
             value='Rain_cm',
             id='x_axis', 
         ),
+        # html.P('Select Variable for Y-Axis'),
         dcc.Dropdown(
             options=df_work.columns[0:3],
             value='Day',
@@ -78,8 +87,10 @@ app.layout = html.Div(children=[
         # style={"width": "20%"}
     )
         ,
-    dcc.Graph(id='irrigation_plot', style={"width": "50%"}
-            )
+    dcc.Graph(
+        id='irrigation_plot', 
+        style={"width": "50%"}
+        )
     ], style={"display": "flex",
           "flex-direction": "column",
           "align-items": "center",
@@ -87,7 +98,7 @@ app.layout = html.Div(children=[
           "width": "100vw"} # style can be used to override previous set styles
 )
 
- # Callbacks for handling tab changes and file uploads
+# Callbacks for handling tab changes and file uploads
 @app.callback(
     Output('irrigation_plot', 'figure'),
     [Input('x_axis', 'value'),
