@@ -8,6 +8,45 @@
   <!-- <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='supplement.css') }}"> -->
 
-  <title>{% block title %}{% endblock %} - OWRD</title>
+  <!-- title appears in the browser tab -->
+  <!-- <title>{% block title %}{% endblock %} - OWRD</title> -->
+   <title>Plotly Plot Example</title>
 </head>
 <body>
+
+
+  <!-- <div id="vertical-navbar"></div> -->
+    <nav>
+        <div class="flex-column" style="text-align: left;">
+        <form method="POST" style="padding-left: 0;">
+            <label for="x_column" style="align-items: left">Choose X-axis Column:</label>
+            <select name="x_column" id="x_column">
+              <!-- onchange="this.form.submit()"> -->
+                {% for col in columns %}
+                <option value="{{ col }}" {% if x_column == col %}selected{% endif %}>{{ col }}</option>
+                {% endfor %}
+                <!-- Add more options for other columns as needed -->
+            </select>
+            <label for="y_column" style="align-items: left">Choose Y-axis Column:</label>
+            <select name="y_column" id="y_column">
+              <!-- onchange="this.form.submit()"> -->
+                {% for col in columns %}
+                    <option value="{{ col }}" {% if y_column == col %}selected{% endif %}>{{ col }} </option>
+                {% endfor %}
+                <!-- Add more options for other columns as needed -->
+            </select>
+            <input type="submit" value="Update Plot">
+        </form>
+        </div>
+    </nav>
+</div>
+
+
+
+<!-- Display the Plotly plot -->
+<!-- id="plotly-plot" -->
+<div class="row"> <!-- style="height: 50%;" -->
+    <div class="col-md-5 offset-sm-2 border-primary order-md-1" style="margin-top: 1%; margin-bottom: 5%">  
+        {{ plot_html | safe }}
+    </div>
+</div>

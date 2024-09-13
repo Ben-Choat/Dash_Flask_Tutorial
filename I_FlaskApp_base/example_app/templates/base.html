@@ -1,0 +1,100 @@
+ <!-- templates are files that contain static data as well as placeholders for dynamice data
+ Flask uses Jinja template library to render templates 
+ https://flask.palletsprojects.com/en/3.0.x/tutorial/templates/
+
+ Here, create a base template, which has a base layout that all pages will share
+ Templates for other pages will build on this base template
+
+ special object g, is automatically available in templates 
+url_for is also automatically available in templates 
+
+% block title % will change the title displayed in the browser’s tab and window title.
+% block header % is similar to title but will change the title displayed on the page.
+% block content % is where the content of each page goes, such as the login form or a blog post.-->
+
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- base css -->
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='supplement.css') }}"> -->
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+  <title>{% block title %}{% endblock %} - OWRD</title>
+</head>
+<body>
+  <div class = "row">
+  <nav class="navbar navbar-expand-lg" data-bs-theme="light" style="z-index: 10000">
+    <div class="container-fluid">
+      <div class="container-fluid d-flex justify-content-between">
+        <img src="{{ url_for('static', filename='Hara.jpg') }}" alt="Pup" 
+            class="img-fluid" style="width: 30vh; height: auto">
+        <br>
+      <button class="navbar-toggler" 
+        type="button"
+        data-bs-toggle="collapse" 
+        data-bs-target="#MainNavBar" 
+        aria-controls="MainNavBar" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="d-flex justify-content-center"> -->
+        <div class="collapse navbar-collapse" id="MainNavBar">      
+          <!-- color: var(--bs-navbar-color);
+  background-color: transparent; -->
+          <ul class="navbar-nav">
+            <!-- me-auto -->
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/hello' %}active{% endif %}" href="/hello">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/plot' %}active{% endif %}" href="/plot">Plot</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/dashView' %}active{% endif %}" href="/dashView">Dash-View</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/dashApp' %}active{% endif %}" href="/dashApp">Dash-App</a>
+            </li>
+          </ul>
+          </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<section>
+  {% block content %}{% endblock %}
+</section>
+
+
+  <footer>
+    <div class="card" style="text-align: center; border-color: lightgray; margin: 5px">
+        <H1>The WEST is the Best</H1>
+    </div>
+  </footer>
+
+  
+
+  
+  <!-- <script 
+    src=https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js>
+  </script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" 
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" 
+        crossorigin="anonymous">
+  </script>
+
+</body>
+<html>

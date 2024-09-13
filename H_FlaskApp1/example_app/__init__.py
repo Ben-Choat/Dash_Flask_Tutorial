@@ -33,8 +33,11 @@ I'm also not covering config.py... You can define certain environment
 
 '''
 
-from flask import Flask
+from flask import Flask, render_template
 import os
+from .PlotlyPlot import plotRender
+from .DashApp import create_dash_app
+
 
 # test_config is a config file that can be loaded instead of 
 # a config file for development testing
@@ -79,6 +82,17 @@ def create_app(test_config=None):
     def landing():
         from flask import redirect
         return redirect('/hello')
+    
+    @app.route('/plot', methods=['Get', 'Post'])
+    def plot():
+        return plotRender()
+    
+    @app.route('/dashView')
+    def dashView():
+        return render_template('dashView.html')
+    
+    # render dash app 
+    create_dash_app(app)
 
 
     return app

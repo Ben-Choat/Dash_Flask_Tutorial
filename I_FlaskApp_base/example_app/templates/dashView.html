@@ -1,0 +1,22 @@
+
+<section id="header">
+    {% extends 'base.html' %}
+</section>
+
+{% block header %}
+    <h1 class="figure-content">{% block title %}Plotly Plot Example{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <!-- base css -->
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='supplement.css') }}"> -->
+
+
+<div class="container-fluid" style="height: 100vh; margin: 0; padding: 0">
+    <div class="row">
+        <iframe id="dash_map" class="iframe" src="/dashApp/" style="width: 100vw; height:100vh; border: none;"></iframe>
+    </div>
+</div>
+
+{% endblock %}

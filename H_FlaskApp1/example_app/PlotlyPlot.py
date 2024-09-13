@@ -10,7 +10,7 @@ Describe how to pass plot to html
 
 
 # load libraries
-from C_PlotlyPlots import create_go_plot
+from .PlotlyPlotFuncts import create_go_plot
 import numpy as np
 import pandas as pd
 from flask import render_template, request
@@ -31,17 +31,16 @@ df_work = pd.DataFrame({
     'Irrigated': ['yes' if i == 1 else 'no' for i in rndm_numbers]
 })
 
-
 # def route
 # @bp.route('/plot', methods=['GET', 'POST'])
 def plotRender():
-
-    columns = df_work.columns
+    columns = df_work.columns[0:3]
     x_column = request.form.get('x_column', columns[0])
+    y_column = request.form.get('y_column', columns[1])
     print(x_column)
 
-    # # create plot
-    plot = create_go_plot(df_work, x_column)
+    # create plot
+    plot = create_go_plot(df_work, x_column, y_column,  'Irrigated')
 
     # convert to html
     plot_html = plot.to_html(full_html=False)
@@ -50,4 +49,5 @@ def plotRender():
     return render_template('plot.html',
                            plot_html=plot_html,
                             x_column=x_column,
+                            y_column=y_column,
                             columns=columns)

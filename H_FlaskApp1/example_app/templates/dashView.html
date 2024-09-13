@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- base css -->
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='supplement.css') }}"> -->
+
+  <!-- title appears in the browser tab -->
+  <!-- <title>{% block title %}{% endblock %} - OWRD</title> -->
+   <title>Plotly Plot Example</title>
+</head>
+<body>
+
+<div class="container-fluid" style="height: 100vh; margin: 0; padding: 0">
+    <div class="row">
+        <iframe id="dash_map" class="iframe" src="/dashApp/" style="width: 100vw; height:100vh; border: none;"></iframe>
+    </div>
+</div>
