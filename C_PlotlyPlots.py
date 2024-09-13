@@ -68,7 +68,7 @@ def create_go_plot(df: pd.DataFrame, col1: str, col2: str, cat_col: str) -> go.F
     '''
     Creates a simple scatter plot using plotly express.
 
-    For a graph gallery, see: https://plotly.com/python/plotly-express/
+    For a graph gallery, see: https://plotly.com/python/graph-objects/
 
     Inputs
     -----------------------
@@ -96,12 +96,6 @@ def create_go_plot(df: pd.DataFrame, col1: str, col2: str, cat_col: str) -> go.F
                 y=subset[col2],
                 mode='markers',
                 name=category,
-                # hovertext=df.apply(
-                #     lambda row: (f'Day: {row[col1]}<br>'
-                #                  f'Rain (cm): {row[col2]}<br>'
-                #                  f'Irrigated: {row[cat_col]}'), 
-                #     axis=1),
-                # hovertemplate='%{hovertext}<extra></extra>'  # Custom pop-up format
             ))
     else:
         # Create a scatter plot without coloring

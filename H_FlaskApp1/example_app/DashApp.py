@@ -50,15 +50,15 @@ def create_dash_app(server):
 
     # app layout
     # dbc.Container initiates bootstraps grid system (screen split to 12 columns, and can define rows)
-    # app.layout = dbc.Container(children=[ 
-    app.layout = html.Div(children=[
-        # dbc.Row(children=[
-        #     dbc.Col(children = [
-                html.Div(children=[
+    app.layout = dbc.Container(children=[ 
+    # app.layout = html.Div(children=[
+        dbc.Row(children=[
+            dbc.Col(children = [
+                # html.Div(children=[
                     html.H1('~~~~Basic Dash Example~~~~'),
-            # ], width={"size": 10, "offset": 1}
-            # )
-            # ]),
+        #     ], width={"size": 10, "offset": 1}
+        #     )
+        #     ]),
         # dbc.Row(children = [
         #     dbc.Col(children=[
                     html.Div(children = [
@@ -81,19 +81,10 @@ def create_dash_app(server):
                         id='irrigation_plot', 
                         # style={"width": "50%"}
                         )
-                    ], 
-                    style={"display": "flex",
-                        "flex-direction": "column",
-                        "align-items": "center",
-                        "min-height": "100vh",
-                        "width": "100vw"
-                        } # style can be used to override previous set styles
-                )
-            # ], 
-            # width=3, 
-            # width = {"size": 4, "offset": 4}# width options: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/#:~:text=Specify%20order%20and%20offset
-            # ) # column 
-        # ]) # row
+                    ],  
+            width = {"size": 4, "offset": 4}# width options: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/#:~:text=Specify%20order%20and%20offset
+            ) # column 
+        ]) # row
     ]) # container (or Div)
 
     # Callbacks for handling tab changes and file uploads

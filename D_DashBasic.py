@@ -68,11 +68,12 @@ app.layout = html.Div(children=[
                     cat_col='Irrigated'
                     ), # style={"width": "50%"}
             )
-    ], #style={"display": "flex",
-        #   "flex-direction": "column",
-        #   "align-items": "center",
-        #   "min-height": "100vh",
-        #   "width": "100vw"} # style can be used to override previous set styles
+    ], 
+    # style={"display": "flex",
+    #       "flex-direction": "column", # row
+    #       "align-items": "center",
+    #       "min-height": "100vh",
+    #       "width": "100vw"} # style can be used to override previous set styles
 )
 
 # debug=True allows app to update while being ran (helps w/troublehsooting)

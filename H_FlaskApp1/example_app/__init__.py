@@ -10,7 +10,7 @@ Run with following in terminal, where "website" is app name (since __init__ is t
 flask --app website run --debug
 
 Some resources:
-- User guid: https://flask.palletsprojects.com/en/3.0.x/#user-s-guide
+- User guide: https://flask.palletsprojects.com/en/3.0.x/#user-s-guide
 - intro tutorial: https://flask.palletsprojects.com/en/3.0.x/tutorial/
 - setting up application factory: https://flask.palletsprojects.com/en/3.0.x/tutorial/factory/
 
@@ -75,7 +75,6 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/hello')
     def hello():
-        # return 'Seriously though, how much rain does eastern Oregon get???'
         return '<Div><H1>Seriously though, how much rain does eastern Oregon get???</H1></Div>'
     
     @app.route('/')

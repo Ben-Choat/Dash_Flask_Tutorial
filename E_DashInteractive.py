@@ -42,7 +42,6 @@ from dash import Dash, dcc, html
 from C_PlotlyPlots import create_go_plot
 import numpy as np
 import pandas as pd
-# import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
 
@@ -60,37 +59,31 @@ df_work = pd.DataFrame({
     'Irrigated': ['yes' if i == 1 else 'no' for i in rndm_numbers]
 })
 
-# for info about bootstrap themes in Dash see: 
-   # https://dash-bootstrap-components.opensource.faculty.ai/docs/#:~:text=Linking%20a%20stylesheet
-# print(dbc.themes.COSMO)
-# app definition
-# app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-# app = Dash(external_stylesheets=[dbc.themes.CYBORG])
 app = Dash()
 
 # app layout
 app.layout = html.Div(children=[
     html.H1('~~~~Basic Dash Example~~~~'),
-    # html.Div(children = [
-        # html.P('Select Variable for X-Axis'),
+    html.Div(children = [
+        html.P('Select Variable for X-Axis'),
         dcc.Dropdown(
             options=df_work.columns[0:3],
             value='Rain_cm',
             id='x_axis', 
         ),
-        # html.P('Select Variable for Y-Axis'),
+        html.P('Select Variable for Y-Axis'),
         dcc.Dropdown(
             options=df_work.columns[0:3],
             value='Day',
             id='y_axis', 
-        # )], 
-        # style={"width": "20%"}
+        )], 
+        style={"width": "20%"}
     )
         ,
     dcc.Graph(
         id='irrigation_plot', 
         style={"width": "50%"}
-        )
+        ) # graph
     ], style={"display": "flex",
           "flex-direction": "column",
           "align-items": "center",
@@ -104,15 +97,18 @@ app.layout = html.Div(children=[
     [Input('x_axis', 'value'),
      Input('y_axis', 'value')]
 )
-def make_plot(x_ax, y_ax):
-    # print(f'x_ax: {x_ax}, y_ax: {y_ax})
+def junk_name(x_ax, y_ax):
+    # print(f'x_ax: {x_ax}, y_ax: {y_ax}')
+    # print(f'df: {df_work}')
     figure = create_go_plot(
                     df=df_work, 
-                    col1=x_ax, 
+                    col1=x_ax,
                     col2=y_ax, 
                     cat_col='Irrigated'
                     )
     return figure
+
+
 # debug=True allows app to update while being ran (helps w/troublehsooting)
 # it also includes a troubleshooting help button (you will see when you run)
 app.run_server(debug=True) # other options available here too

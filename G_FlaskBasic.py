@@ -26,7 +26,11 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return 'Seriously though, how much rain does eastern Oregon get???.'
-    # return '<Div><H1>This is html now!!</H1></Div>'
+    # return (
+    #         '<Div><H1>'
+    #         'This is html now!!<br>Seriously though, how much rain does eastern Oregon get???'
+    #         '</H1></Div>'
+    #             )
 
 # Run the application
 if __name__ == '__main__':
